@@ -59,23 +59,7 @@ const saveTasksToLocalStorage = (tasks) => {
     localStorage.setItem('tasks', JSON.stringify(tasks))
 }
 
-// const { LocalStorage } = require('node-localstorage');
-// const localStorage = new LocalStorage('./scratch');
 
-// const testTasks = [
-//   { id: 1, text: 'Task 1' },
-//   { id: 2, text: 'Task 2' },
-//   { id: 3, text: 'Task 3' }
-// ];
-
-// saveTasksToLocalStorage(testTasks);
-// console.log('Initial tasks:', loadTasksFromLocalStorage());
-
-// removeTaskFromLocalStorage(2);
-// console.log('Tasks after removal:', loadTasksFromLocalStorage());
-
-// createTask('New Task');
-// console.log('Tasks after addition:', loadTasksFromLocalStorage());
 
 
 
