@@ -25,6 +25,62 @@ function capitalizeFirstLetter(str){
     return arr.join(' ')
 }
 
+
 // 4.
+const createTask = (taskInput) => {
+    const task = {
+        id: loadTasksFromLocalStorage().length + 1,
+        text: taskInput
+    }
+    return addTaskToLocalStorage(task)
+}
+
+const addTaskToLocalStorage = (task) => {
+    if (task.text !== '') {
+        const tasks = loadTasksFromLocalStorage()
+        tasks.push(task)
+        saveTasksToLocalStorage(tasks)
+    }
+}
+
+const removeTaskFromLocalStorage = (id) => {
+    const tasks = loadTasksFromLocalStorage()
+    const index = tasks.findIndex(task => task.id === id)
+    tasks.splice(index, 1)
+    saveTasksToLocalStorage(tasks)
+}
+
+const loadTasksFromLocalStorage = () => {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || []
+    return tasks
+}
+
+const saveTasksToLocalStorage = (tasks) => {
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+}
+
+// const { LocalStorage } = require('node-localstorage');
+// const localStorage = new LocalStorage('./scratch');
+
+// const testTasks = [
+//   { id: 1, text: 'Task 1' },
+//   { id: 2, text: 'Task 2' },
+//   { id: 3, text: 'Task 3' }
+// ];
+
+// saveTasksToLocalStorage(testTasks);
+// console.log('Initial tasks:', loadTasksFromLocalStorage());
+
+// removeTaskFromLocalStorage(2);
+// console.log('Tasks after removal:', loadTasksFromLocalStorage());
+
+// createTask('New Task');
+// console.log('Tasks after addition:', loadTasksFromLocalStorage());
+
+
+
+
+
+
  
 
